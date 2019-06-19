@@ -10,6 +10,14 @@ class ArticlesTable extends Component {
       label: "Title",
       content: article => <Link to={`/articles/${article._id}`}>{article.title}</Link>
     },
+    {
+      label: "Image",
+      content: article => <img width="50px" src={`${article.image}`} />
+    },
+    {
+      label: "Action",
+      content: article => <Link to={`/images/${article._id}`}>Add Images</Link>
+    },
     /*{ path: "genre.name", label: "Genre" },
     { path: "numberInStock", label: "Stock" },
     { path: "dailyRentalRate", label: "Rate" },
@@ -18,7 +26,7 @@ class ArticlesTable extends Component {
       content: article => (
         <Like liked={article.liked} onClick={() => this.props.onLike(article)} />
       )
-    },*/
+    },
     {
       key: "delete",
       content: article => (
@@ -29,13 +37,15 @@ class ArticlesTable extends Component {
           Delete
         </button>
       )
-    }
+    }*/
   ];
 
   render() {
     const { articles, onSort, sortColumn } = this.props;
+    
 
     return (
+      
       <Table
         columns={this.columns}
         data={articles}
